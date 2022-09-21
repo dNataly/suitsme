@@ -1,0 +1,222 @@
+body {
+   margin: 0;
+    overflow: hidden;
+}
+
+.steps:not(.active) {
+    opacity: 0;
+    height: 0;
+    overflow-y: hidden;
+    pointer-events: none;
+}
+
+.active {
+    opacity: 1;
+    height: 100%;
+    overflow-y: auto;
+
+    animation: appear .25s linear;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+img {
+    position: absolute;
+}
+
+.start-btn {
+    animation: 1s pulse infinite ease-in-out, shake .5s cubic-bezier(.36,.07,.19,.97) 2s;
+}
+
+.try-again {
+    opacity: 0;
+
+    animation: fadeIn, shake;
+    animation-delay: 3.5s, 4s;
+    animation-duration: .3s, .7s;
+    animation-iteration-count: 1, 3;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+    50% {
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8)
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1)
+    }
+    100% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    10% { transform: translate(5px, 5px) rotate(5deg); }
+    20% { transform: translate(0, 0) rotate(0deg); }
+    30% { transform: translate(-5px, 5px) rotate(-5deg); }
+    40% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(5px, 5px) rotate(5deg); }
+    60% { transform: translate(0, 0) rotate(0deg); }
+    70% { transform: translate(-5px, 5px) rotate(-5deg); }
+    80% { transform: translate(0, 0) rotate(0deg); }
+    90% { transform: translate(5px, 5px) rotate(5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.hand {
+    pointer-events: none;
+}
+
+.step-1 .hand {
+    /*position: absolute;*/
+    left: 25%;
+    top: 40%;
+z-index: 5;
+
+    animation: .5s touch 1.5s;
+    /*animation-iteration-count: 2;*/
+}
+
+
+@keyframes touch {
+    50% {
+        transform: translate(-12%, -12%);
+    }
+}
+
+.options-btn__wrap {
+    width: 300px;
+    height: 80%;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+
+.options-btn {
+    position: static;
+    margin: 1rem 0;
+    opacity: 0;
+    transition: .25s linear;
+    animation: appear 1s linear;
+    animation-fill-mode: forwards;
+
+    border: 10px solid #5f5e5f;
+    border-radius: 30px;
+}
+
+.options-btn.selected {
+    border-color: #1acf05;
+}
+
+.options-btn:nth-of-type(1) {
+    animation-delay: .5s
+}
+
+.options-btn:nth-of-type(2) {
+    animation-delay: 1s
+}
+.options-btn:nth-of-type(3) {
+    animation-delay: 1.5s
+}
+.options-btn:nth-of-type(4) {
+    animation-delay: 2s
+}
+.options-btn:nth-of-type(5) {
+    animation-delay: 2.5s
+}
+
+.step-2 .hand {
+    top: 40%;
+    left: 45%;
+    z-index: 5;
+
+    animation: 3s show linear;
+    animation-fill-mode: forwards;
+}
+
+
+
+@keyframes show {
+    0% {
+    top: 40%;
+}
+    25% {
+        top: -30%;
+    }
+    50% {
+        top: 25%;
+    }
+    75% {
+        top: -32%;
+    }
+    100% {
+        top: 10%;
+    }
+}
+
+.ok-btn {
+    position: absolute;
+}
+
+.emoji-wrap {
+    position: absolute;
+    bottom: -100%;
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+.emoji-wrap.run-animation {
+    animation: 2.8s showUp;
+    animation-delay: .15s;
+}
+
+@keyframes showUp {
+    0% {
+        bottom: 15%;
+        opacity: 0.7;
+    }
+    25% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        bottom: 200%;
+    }
+
+}

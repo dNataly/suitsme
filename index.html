@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+<div class="audio">
+    <audio src="./path/MusicBG.mp3" autoplay class="default-audio"></audio>
+    <audio src="./path/SoundButton.mp3" class="btn-sound"></audio>
+    <audio src="./path/SoundCry.mp3" class="cry-sound"></audio>
+</div>
+<div class="default-bg__wrap">
+    <img src="./path/BG1.jpg" alt="" class="default-bg">
+</div>
+<img src="./path/OutfitDefault.png" alt="" class="default-outfit">
+<div class="steps step-1 active">
+    <img src="./path/BubbleGirl.png" class="animate__animated animate__fadeIn" alt="">
+    <img src="./path/Hand.png" class="hand" alt="">
+    <img src="./path/ButtonStart.png" class="btn start-btn btn-next" alt="">
+</div>
+<div class="steps step-2">
+    <img src="./path/Shadow.png" class="intro-text animate__animated animate__fadeIn" alt="">
+    <img src="./path/ButtonOkGrey.png" class="btn ok-btn btn-next" alt="">
+    <div class="emoji-wrap run-animation">
+        <img src="./path/" alt="" class="emoji">
+    </div>
+    <div class="options-btn__wrap">
+        <img src="./path/Button1Grey.png" class="options-btn btn" id="1" alt="">
+        <img src="./path/Button2Grey.png" class="options-btn btn" id="2" alt="">
+        <img src="./path/Button3Grey.png" class="options-btn btn" id="3" alt="">
+        <img src="./path/Button4Grey.png" class="options-btn btn" id="4" alt="">
+        <img src="./path/Button5Grey.png" class="options-btn btn" id="5" alt="">
+    </div>
+    <img src="./path/Hand.png" class="hand" alt="">
+</div>
+<div class="steps step-3">
+    <a href="" class="cta-btn">
+        <img src="./path/BubbleGirlfriend.png" class="animate__animated animate__zoomIn animate__delay-2s" alt="">
+        <img src="./path/StampFail.png" class="animate__animated animate__bounceIn animate__delay-3s animation-duration-2s" alt="">
+        <img src="./path/ButtonTryAgain.png" alt="" class="try-again">
+    </a>
+</div>
+<img src="./path" alt="">
+<script async>
+    const screenSize = window.screen.width < 1920 ? '1080x1920' : '1920x1080';
+    const lang = 'en';
+    const path = `${screenSize}/${screenSize}_PA_${lang}_DateWGirlfriend_`;
+    document.querySelectorAll("[src]").forEach(item => item.src = item.src.replace('path/', path))
+</script>
+<script src="./index.js"></script>
+</body>
+</html>
