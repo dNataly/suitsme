@@ -9,12 +9,12 @@ const steps = document.querySelectorAll(".steps"),
     introText = document.querySelector(".intro-text"),
     emoji = document.querySelector(".emoji"),
     emojiWrap = document.querySelector(".emoji-wrap"),
-    ctaBtn = document.querySelector(".cta-btn");
+    ctaBtn = document.querySelector(".cta-btn"),
+    errorMsg = document.querySelector(".error-msg");
 let currentStep = 1;
 
 
 nextBtn.addEventListener("click", nextStep);
-
 buttons.forEach(item => item.addEventListener("click", () => {
     document.querySelector(".btn-sound").play();
 }))
@@ -22,8 +22,6 @@ buttons.forEach(item => item.addEventListener("click", () => {
 
 function nextStep() {
     currentStep++;
-
-    console.log("step up")
 
     for (let i = 1; i <= steps.length; i++) {
         i === currentStep
@@ -38,6 +36,7 @@ options.forEach(item => item.addEventListener("click", chooseOutfit));
 function chooseOutfit() {
     hand.style.display = "none";
     introText.style.display = "none";
+    errorMsg.innerHTML = "";
     options.forEach(item => item.classList.remove("selected"));
 
     emojiWrap.classList.remove("run-animation");
@@ -47,16 +46,14 @@ function chooseOutfit() {
     this.classList.add("selected");
     let selectedOutfitId = this.id;
     defaultOutfit.src = `${path}Outfit${selectedOutfitId}.png`;
+    defaultOutfit.addEventListener("error", () =>  {defaultOutfit.src = `${path}OutfitDefault.png`; errorMsg.innerHTML = "It seems I lost it :( "});
     emoji.src = `${path}EmojiOutfit${selectedOutfitId}.png`;
 
     okBtn.src = `${path}ButtonOkYellow.png`;
-
     okBtn.addEventListener("click", setOutfit);
-
     function setOutfit() {
         nextStep();
         document.querySelector(".step-3").classList.add("active");
-
 
         document.querySelector(".default-audio").pause()
         document.querySelector(".cry-sound").play()
@@ -66,14 +63,10 @@ function chooseOutfit() {
     }
 }
 
-
-
-const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-// Windows Phone must come first because its UA also contains "Android"
-
-
-(/android/i.test(userAgent)) ? ctaBtn.href = "https://play.google.com/store/apps/details?id=com.style.fashion.game.suitsme" : "https://apps.apple.com/ua/app/suitsme-luxury-dress-up-game/id1536929374?l=eng"
-
-
+function setCtaLink () {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    (/android/i.test(userAgent)) ? ctaBtn.href = "https://play.google.com/store/apps/details?id=com.style.fashion.game.suitsme" : "https://apps.apple.com/ua/app/suitsme-luxury-dress-up-game/id1536929374?l=eng"
+}
+setCtaLink();
 
 console.clear();
