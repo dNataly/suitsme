@@ -42,7 +42,7 @@ img {
     opacity: 0;
 
     animation: fadeIn, shake;
-    animation-delay: 3s, 4s;
+    animation-delay: 3.5s, 4s;
     animation-duration: .3s, .7s;
     animation-iteration-count: 1, 3;
     animation-fill-mode: forwards;
@@ -119,7 +119,7 @@ img {
 
 .stamp-fail {
     opacity: 0;
-    animation: scaleIn .6s 3s both;
+    animation: scaleIn .6s 3.5s both;
 }
 
 @keyframes scaleIn {
