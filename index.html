@@ -11,7 +11,7 @@
 <body>
 <h2 class="error-msg"></h2>
 <div class="audio">
-    <audio src="./path/MusicBG.mp3" autoplay loop class="default-audio"></audio>
+    <audio src="./path/MusicBG.mp3" autoplay loop preload="auto" class="default-audio"></audio>
     <audio src="./path/SoundButton.mp3" class="btn-sound"></audio>
     <audio src="./path/SoundCry.mp3" class="cry-sound"></audio>
 </div>
@@ -56,5 +56,6 @@
     if (screenSize === '1920x1080') document.querySelector(".options-btn__wrap").style.cssText = "width: 600px; right: 5%; text-align: center;top:18%"
 </script>
 <script async src="./index.js"></script>
+<script>document.addEventListener("mousemove", () => document.querySelector(".default-audio").play());</script>
 </body>
 </html>
